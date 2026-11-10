@@ -54,7 +54,16 @@ The project gave me practical experience working with frontend and backend techn
 
 ## Screenshots
 
-Screenshots of the application will be added here to demonstrate the dashboard, transaction management and financial visualisations.
+## Screenshots
+
+### Financial Dashboard
+![FinTrack Dashboard](screenshots/dashboard.png)
+
+### Transaction Management
+![Transaction Management](screenshots/transactions.png)
+
+### Budgets and Savings Goals
+![Budgets and Savings](screenshots/budgets.png)
 
 ## Running the Project Locally
 
