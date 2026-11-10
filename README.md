@@ -1,63 +1,144 @@
 # FinTrack — Personal Finance Dashboard
 
-Full-stack personal finance dashboard built with Flask, SQLite, JavaScript and Chart.js.
+A full-stack personal finance web application built using **Python, Flask, SQLite, JavaScript and Chart.js**.
 
-## Features
-- Registration/login with Werkzeug password hashing, signed sessions, CSRF tokens and per-user records
-- Add/delete dated transactions, category charts, search and type filtering
-- Monthly budgets, savings goals and Python-generated financial insights
-- CSV export with spreadsheet-formula injection protection
-- Responsive dark fintech interface and automated tests
+I developed FinTrack to strengthen my full-stack development skills by building an application that allows users to manage transactions, monitor spending, set financial goals and understand their finances through interactive visualisations.
 
-## Run locally (Windows PowerShell)
+The project gave me practical experience working with frontend and backend technologies, databases, authentication, REST APIs and cloud deployment.
+
+### Live Demo
+
+**[Try FinTrack](https://fintrack-personal-finance-dashboard-bgmd.onrender.com)**
+
+**[View Source Code](https://github.com/Nahum8886/FinTrack-Personal-Finance-Dashboard)**
+
+*This is a portfolio demonstration. Please use test information only. Data entered on the live website may be lost when the hosting service restarts or redeploys.*
+
+## Key Features
+
+### User Authentication
+- Account registration and login
+- Password hashing using Werkzeug
+- Signed sessions and CSRF protection
+- User-specific financial records
+
+### Transaction Management
+- Add and delete income and expense transactions
+- Organise transactions by date and category
+- Search and filter transaction history
+- Export transactions to CSV
+
+### Financial Dashboard
+- View income, expenses and overall balance
+- Interactive spending charts using Chart.js
+- Income and expense comparisons
+- Responsive dashboard interface
+
+### Budgeting and Savings
+- Set monthly spending budgets
+- Track progress towards savings goals
+- View financial insights generated using Python
+
+## Technologies Used
+
+| Area | Technologies |
+|---|---|
+| Frontend | HTML, CSS, JavaScript |
+| Backend | Python, Flask |
+| Database | SQLite |
+| Data Visualisation | Chart.js |
+| Authentication | Werkzeug, Flask sessions |
+| Testing | Python unittest |
+| Version Control | Git, GitHub |
+| Deployment | Render, Gunicorn |
+
+## Screenshots
+
+Screenshots of the application will be added here to demonstrate the dashboard, transaction management and financial visualisations.
+
+## Running the Project Locally
+
+### Requirements
+
+- Python 3
+- Git
+- A modern web browser
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/Nahum8886/FinTrack-Personal-Finance-Dashboard.git
+cd FinTrack-Personal-Finance-Dashboard
+```
+
+2. Create a virtual environment:
 
 ```powershell
 py -m venv .venv
+```
+
+3. Install the dependencies:
+
+```powershell
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
+```
+
+4. Configure a Flask secret key:
+
+```powershell
 $env:SECRET_KEY = (py -c "import secrets; print(secrets.token_hex(32))")
+```
+
+5. Start the application:
+
+```powershell
 .\.venv\Scripts\python.exe app.py
 ```
 
-Open http://127.0.0.1:5000 and create an account.
+6. Open `http://127.0.0.1:5000` in your browser.
 
-### Keep your old data
-**Back up the entire old project, especially `finance.db`, before starting.** Put a *copy* of the old `finance.db` in this new project's root. Start the application, register your account, stop the server, then run:
+## Running Tests
 
-```powershell
-$env:FLASK_APP = 'app'
-.\.venv\Scripts\python.exe -m flask claim-legacy
-```
+The project includes automated Python tests.
 
-Enter your new account email and type `CLAIM` when prompted. This explicitly assigns previously unowned transactions, budgets and savings goals to your account. Old transactions without dates are assigned the migration date; review them before trusting monthly comparisons. Legacy databases may have different column names or constraints: keep your backup and check the database migration before importing production data.
-
-## Run tests
+Run them using:
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
 ```
 
-## GitHub
+## Security and Limitations
 
-1. Create a **private** GitHub repository first.
-2. In the project folder run:
+FinTrack includes password hashing, CSRF protection, parameterised SQL queries, user-scoped database access and CSV formula-injection protection.
 
-```powershell
-git init
-git add .
-git commit -m "Build FinTrack full-stack finance dashboard"
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/fintrack.git
-git push -u origin main
-```
+However, it is a learning and portfolio project rather than a production banking application. It does not currently include features such as multi-factor authentication, password recovery, account rate limiting or automated backups.
 
-Do not commit `finance.db`, `.env`, passwords or other personal financial data. `.gitignore` excludes these by default. Make the repository public only after reviewing its history for secrets and data.
+The live demonstration uses SQLite on Render's free hosting environment, which does not guarantee persistent storage. Users should not enter real financial information, banking credentials or sensitive personal data.
 
-## Live deployment
+## What I Learned
 
-`render.yaml` is an **example** configuration for Render with a persistent disk (usually a paid service). Import your GitHub repo as a Blueprint, verify the plan and billing before deploying, and keep the generated `SECRET_KEY` private. The server runs using Gunicorn; SQLite lives at `/var/data/finance.db` on the persistent disk. Do not deploy with Flask debug mode enabled. For multi-instance or larger production use, migrate to PostgreSQL. A free ephemeral filesystem is **not safe** for persistent financial records.
+Developing FinTrack helped me improve my understanding of:
 
-This is a portfolio learning project, not a banking application. It lacks production-grade rate limiting, email verification, password reset, MFA, monitoring, backup automation, and formal security review. Do not store bank credentials or sensitive real-world financial information in a public demo. Use sample data.
+- Building a full-stack application with Python and JavaScript
+- Connecting frontend interfaces to Flask REST APIs
+- Designing and managing relational database records
+- Implementing account authentication and user-specific data access
+- Creating interactive charts and financial visualisations
+- Testing, debugging and deploying a web application
+- Using Git and GitHub to manage and publish a software project
 
-## Security notes
+## Future Improvements
 
-The CSRF token is returned after login and stored in the page session. Flask's signed cookie requires a stable secret in production. HTTPS-only cookies require `COOKIE_SECURE=1`. The app uses SQLite parameterised queries and user-scoped data access. For a public deployment, add account lockout/rate limiting, backup/restore processes, and stricter operational controls before treating it as production-ready.
+- Persistent PostgreSQL database
+- Additional automated tests
+- Improved mobile accessibility
+- More advanced financial reporting
+- Stronger authentication and account security
+
+## About the Developer
+
+Developed by **Nahum Wondimagegne**, a BSc Computer Science student at Brunel University London, as a personal software development project.
+
+[LinkedIn](https://www.linkedin.com/in/nahum-wondimagegne) | [GitHub](https://github.com/Nahum8886)
