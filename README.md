@@ -54,8 +54,6 @@ The project gave me practical experience working with frontend and backend techn
 
 ## Screenshots
 
-## Screenshots
-
 ### Financial Dashboard
 ![FinTrack Dashboard](screenshots/dashboard.png)
 
